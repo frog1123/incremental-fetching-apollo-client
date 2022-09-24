@@ -1,0 +1,8 @@
+type Query {
+  users(amount: Int!, offset: Int!): [User]!
+}
+
+type User {
+  username: String!
+  id: Int!
+}
