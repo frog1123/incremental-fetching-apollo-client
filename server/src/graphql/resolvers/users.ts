@@ -13,6 +13,8 @@ export const users_resolver = {
 
       const newArray = [];
       for (let i = 0; i < amount; i++) {
+        if (!fakeUsers[i + offset]) return newArray;
+
         newArray.push(fakeUsers[i + offset]);
       }
 
