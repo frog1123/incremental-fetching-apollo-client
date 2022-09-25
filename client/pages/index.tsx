@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { gql, useQuery } from '@apollo/client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Home: NextPage = () => {
   const usersQuery = gql`
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         offset: offset + limit
       },
       updateQuery: (prev, { fetchMoreResult }: any) => {
-        console.log(fetchMoreResult);
+        console.log(fetchMoreResult.users);
         if (!fetchMoreResult) return prev;
         if (fetchMoreResult.users.length !== 0) setOffset(offset + limit);
         return Object.assign({}, prev, {
